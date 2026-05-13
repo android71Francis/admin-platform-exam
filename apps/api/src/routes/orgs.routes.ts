@@ -4,6 +4,7 @@ import { requireAuth } from '../middleware/requireAuth';
 import { requireOrgMember } from '../middleware/requireOrgMember';
 import { requireFullAccess } from '../middleware/requireFullAccess';
 import { teamsRouter } from './teams.routes';
+import { membersRouter } from './members.routes';
 
 export const orgsRouter = Router();
 
@@ -13,6 +14,12 @@ orgsRouter.use('/:orgId/teams',
   (req, _res, next) => { req.headers['x-org-id'] = req.params.orgId; next(); },
   requireOrgMember,
   teamsRouter,
+);
+
+orgsRouter.use('/:orgId/members',
+  (req, _res, next) => { req.headers['x-org-id'] = req.params.orgId; next(); },
+  requireOrgMember,
+  membersRouter,
 );
 
 orgsRouter.get('/', listOrgs);
