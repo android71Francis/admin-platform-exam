@@ -3,6 +3,7 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import { authRouter } from './routes/auth.routes';
 import { orgsRouter } from './routes/orgs.routes';
+import { usersRouter } from './routes/users.routes';
 
 export const createApp = () => {
   const app = express();
@@ -20,7 +21,7 @@ export const createApp = () => {
 
   app.use('/api/auth', authRouter);
   app.use('/api/orgs', orgsRouter);
-  // app.use('/api/users', usersRouter);
+  app.use('/api/users', usersRouter);
   // app.use('/api/content', contentRouter);
 
   app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
