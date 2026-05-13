@@ -1,6 +1,7 @@
 import express, { Request, Response, NextFunction } from 'express';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
+import { authRouter } from './routes/auth.routes';
 
 export const createApp = () => {
   const app = express();
@@ -16,8 +17,7 @@ export const createApp = () => {
     res.json({ status: 'ok' });
   });
 
-  // Routes mounted in later tasks
-  // app.use('/api/auth', authRouter);
+  app.use('/api/auth', authRouter);
   // app.use('/api/orgs', orgsRouter);
   // app.use('/api/users', usersRouter);
   // app.use('/api/content', contentRouter);
