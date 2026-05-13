@@ -3,10 +3,17 @@ import { listOrgs, getOrg, createOrg, updateOrg, deleteOrg } from '../controller
 import { requireAuth } from '../middleware/requireAuth';
 import { requireOrgMember } from '../middleware/requireOrgMember';
 import { requireFullAccess } from '../middleware/requireFullAccess';
+import { teamsRouter } from './teams.routes';
 
 export const orgsRouter = Router();
 
 orgsRouter.use(requireAuth);
+
+orgsRouter.use('/:orgId/teams',
+  (req, _res, next) => { req.headers['x-org-id'] = req.params.orgId; next(); },
+  requireOrgMember,
+  teamsRouter,
+);
 
 orgsRouter.get('/', listOrgs);
 orgsRouter.post('/', createOrg);
