@@ -306,7 +306,26 @@ services:
 
 ---
 
-## 8. Project Constraints
+## 8. README
+
+A root-level `README.md` covering:
+
+- **Project overview** — what the app does, who it's for
+- **Architecture diagram** (ASCII) — showing the four Docker services and how they relate
+- **Prerequisites** — Docker + Docker Compose (only requirement to run)
+- **Quick start** — `docker-compose up --build` and where to open each service
+  - Web admin: `http://localhost:3000`
+  - API: `http://localhost:4000`
+  - Mobile (Expo): `http://localhost:8081`
+- **Default credentials** — seeded superadmin email + password
+- **Local development** — how to run outside Docker with `turbo dev`
+- **Project structure** — annotated directory tree
+- **Environment variables** — table of all vars with descriptions and defaults
+- **API reference** — link to the spec or inline summary of key endpoints
+
+---
+
+## 9. Project Constraints
 
 - No cloud services — fully self-contained via Docker Compose
 - Single `docker-compose up` must boot the entire stack
