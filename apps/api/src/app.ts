@@ -2,6 +2,7 @@ import express, { Request, Response, NextFunction } from 'express';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import { authRouter } from './routes/auth.routes';
+import { orgsRouter } from './routes/orgs.routes';
 
 export const createApp = () => {
   const app = express();
@@ -18,7 +19,7 @@ export const createApp = () => {
   });
 
   app.use('/api/auth', authRouter);
-  // app.use('/api/orgs', orgsRouter);
+  app.use('/api/orgs', orgsRouter);
   // app.use('/api/users', usersRouter);
   // app.use('/api/content', contentRouter);
 
