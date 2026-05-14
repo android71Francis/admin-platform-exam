@@ -1,0 +1,62 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-exam}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-exam}
+      JWT_SECRET: ${JWT_SECRET:-dev-jwt-secret-change-me-32-chars-min}
+      JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET:-dev-refresh-secret-change-me-32-chars-min}
+      CORS_ORIGIN: http://localhost:3000,http://localhost:19006
+      PORT: "4000"
+      NODE_ENV: production
+    ports:
+      - "4000:4000"
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    restart: unless-stopped
+    depends_on:
+      - api
+    ports:
+      - "3000:80"
+
+  mobile:
+    build:
+      context: .
+      dockerfile: apps/mobile/Dockerfile
+    restart: unless-stopped
+    depends_on:
+      - api
+    environment:
+      EXPO_PUBLIC_API_URL: http://localhost:4000/api
+    ports:
+      - "19006:19006"
+      - "8081:8081"
+      - "19000:19000"
+
+volumes:
+  postgres_data:
