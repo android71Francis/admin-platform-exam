@@ -191,7 +191,7 @@ Status codes: 400 (validation), 401 (unauthenticated), 403 (forbidden), 404 (not
 # Requires a local Postgres reachable at localhost:5432
 createdb exam_test
 DATABASE_URL=postgresql://postgres:postgres@localhost:5432/exam_test \
-  npx prisma migrate deploy --schema apps/api/prisma/schema.prisma
+  npx prisma db push --skip-generate --accept-data-loss --schema apps/api/prisma/schema.prisma
 
 npm test --workspace=@exam/api
 ```

@@ -5,7 +5,6 @@ import { OrgProvider } from './context/OrgContext';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { Layout } from './components/Layout';
 import { DashboardPage } from './pages/DashboardPage';
-// LoginPage and resource pages added in subsequent tasks
 import { LoginPage } from './pages/LoginPage';
 import { OrganizationsPage } from './pages/OrganizationsPage';
 import { TeamsPage } from './pages/TeamsPage';

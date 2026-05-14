@@ -11,9 +11,11 @@
     "clean": "rm -rf .expo dist"
   },
   "dependencies": {
+    "@exam/types": "*",
     "@react-navigation/native": "^6.1.18",
     "@react-navigation/native-stack": "^6.11.0",
     "expo": "~51.0.0",
+    "expo-constants": "~16.0.0",
     "expo-secure-store": "~13.0.0",
     "expo-status-bar": "~1.12.0",
     "react": "18.2.0",
