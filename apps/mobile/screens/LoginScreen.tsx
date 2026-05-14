@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, ActivityIndicator, StyleSheet, Alert } from 'react-native';
-import type { UserDTO } from '@exam/types';
+import type { UserDTO } from '@admin-platform-exam/types';
 import { apiFetch } from '../lib/api';
 import { setItem } from '../lib/storage';
 

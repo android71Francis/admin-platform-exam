@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from 'react';
 import { View, Text, FlatList, ActivityIndicator, TouchableOpacity, StyleSheet, RefreshControl } from 'react-native';
-import type { ContentDTO, UserDTO } from '@exam/types';
+import type { ContentDTO, UserDTO } from '@admin-platform-exam/types';
 import { apiFetch } from '../lib/api';
 import { deleteItem } from '../lib/storage';
 import { ContentCard } from '../components/ContentCard';

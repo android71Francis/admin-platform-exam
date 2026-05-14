@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
-import type { UserDTO } from '@exam/types';
+import type { UserDTO } from '@admin-platform-exam/types';
 import { api, registerLogoutHandler } from '../lib/axios';
 
 interface AuthContextValue {

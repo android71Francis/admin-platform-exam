@@ -23,14 +23,13 @@ Boots end-to-end with a single `docker-compose up`. No cloud services required.
 ## Prerequisites
 
 Only Docker + Docker Compose. No Node, no PostgreSQL, no Xcode/Android Studio needed for the demo path.
-
 For local development outside Docker: Node.js 20+ and PostgreSQL 16+.
 
 ## Quick Start
 
 ```bash
 git clone <this-repo> exam
-cd exam
+cd admin-platform-exam
 docker-compose up --build
 ```
 
@@ -68,8 +67,8 @@ docker run -d --name pg -e POSTGRES_PASSWORD=postgres -p 5432:5432 postgres:16-a
 cp .env.example .env
 
 # 4. Run migrations and seed
-npm run db:migrate --workspace=@exam/api
-npm run db:seed   --workspace=@exam/api
+npm run db:migrate --workspace=@admin-platform-exam/api
+npm run db:seed   --workspace=@admin-platform-exam/api
 
 # 5. Start all three apps with hot reload
 npm run dev
@@ -80,7 +79,7 @@ The API runs at :4000, the web admin at http://localhost:5173 (Vite proxies `/ap
 ## Project Structure
 
 ```
-exam/
+admin-platform-exam/
 ├── apps/
 │   ├── api/                 Express + Prisma REST API
 │   │   ├── prisma/
@@ -193,7 +192,7 @@ createdb exam_test
 DATABASE_URL=postgresql://postgres:postgres@localhost:5432/exam_test \
   npx prisma db push --skip-generate --accept-data-loss --schema apps/api/prisma/schema.prisma
 
-npm test --workspace=@exam/api
+npm test --workspace=@admin-platform-exam/api
 ```
 
 ## Design Documents

@@ -1,7 +1,8 @@
 {
-  "name": "exam",
+  "name": "admin-platform-exam",
   "version": "1.0.0",
   "private": true,
+  "packageManager": "npm@9.6.7",
   "workspaces": ["apps/*", "packages/*"],
   "scripts": {
     "build": "turbo run build",
@@ -13,5 +14,9 @@
   "devDependencies": {
     "turbo": "^2.0.0",
     "typescript": "^5.4.0"
+  },
+  "overrides": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   }
 }

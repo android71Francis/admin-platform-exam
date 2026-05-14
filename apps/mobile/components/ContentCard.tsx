@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet } from 'react-native';
-import type { ContentDTO } from '@exam/types';
+import type { ContentDTO } from '@admin-platform-exam/types';
 
 export const ContentCard = ({ item }: { item: ContentDTO }) => (
   <View style={styles.card}>

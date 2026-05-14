@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, View, StyleSheet } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import type { UserDTO } from '@exam/types';
+import type { UserDTO } from '@admin-platform-exam/types';
 import { LoginScreen } from './screens/LoginScreen';
 import { ContentListScreen } from './screens/ContentListScreen';
 import { apiFetch } from './lib/api';

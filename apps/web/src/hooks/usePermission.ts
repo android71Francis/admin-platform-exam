@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import type { AuthMeResponse } from '@exam/types';
+import type { AuthMeResponse } from '@admin-platform-exam/types';
 import { api } from '../lib/axios';
 import { useOrg } from '../context/OrgContext';
 

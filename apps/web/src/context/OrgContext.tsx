@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
-import type { OrganizationDTO } from '@exam/types';
+import type { OrganizationDTO } from '@admin-platform-exam/types';
 import { api, setActiveOrgId } from '../lib/axios';
 import { useAuth } from './AuthContext';
 

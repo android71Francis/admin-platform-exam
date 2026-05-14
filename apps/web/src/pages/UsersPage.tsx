@@ -1,6 +1,6 @@
 import { FormEvent, useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import type { UserDTO } from '@exam/types';
+import type { UserDTO } from '@admin-platform-exam/types';
 import { api } from '../lib/axios';
 import { useOrg } from '../context/OrgContext';
 import { usePermission } from '../hooks/usePermission';
