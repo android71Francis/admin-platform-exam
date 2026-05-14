@@ -28,7 +28,7 @@ For local development outside Docker: Node.js 20+ and PostgreSQL 16+.
 ## Quick Start
 
 ```bash
-git clone <this-repo> exam
+git clone git@github.com:android71Francis/admin-platform-exam.git
 cd admin-platform-exam
 docker-compose up --build
 ```
